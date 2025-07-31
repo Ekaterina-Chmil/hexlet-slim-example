@@ -1,0 +1,30 @@
+<h1>Users</h1>
+
+<!-- Форма поиска -->
+<form action="/users" method="get">
+    <input type="search" name="term" value="<?= htmlspecialchars($term ?? '') ?>" required />
+    <input type="submit" value="Search" />
+</form>
+
+<!-- Вывод flash сообщений -->
+<?php if (!empty($flash['success'])): ?>
+    <?php foreach ($flash['success'] as $message): ?>
+        <div style="background: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+            <?= htmlspecialchars($message) ?>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<!-- Список пользователей -->
+<ul>
+    <?php foreach ($users as $user): ?>
+        <li><?= htmlspecialchars($user['user']['nickname'] ?? '(без имени)') ?>
+
+<form action="/users/<?= $user['id'] ?>" method="post" style="display:inline;" onsubmit="return confirm('Вы уверены, что хотите удалить пользователя?');">
+                <input type="hidden" name="_METHOD" value="DELETE">
+                <input type="submit" value="Удалить">
+            </form>
+</li>
+    <?php endforeach; ?>
+</ul>
+

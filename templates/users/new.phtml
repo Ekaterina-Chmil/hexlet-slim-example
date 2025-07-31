@@ -1,0 +1,20 @@
+<h1>Создать пользователя</h1>
+
+<form action="/users" method="POST">
+  <label for="nickname">Никнейм:</label><br>
+  <input type="text" name="user[nickname]" value="<?= htmlspecialchars($user['nickname'] ?? '') ?>" required><br>
+  <?php if (!empty($errors['nickname'])): ?>
+  <div style="color: red;"><?= htmlspecialchars($errors['nickname']) ?></div>
+  <?php endif; ?>
+  <br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" name="user[email]" value="<?= htmlspecialchars($user['email'] ?? '') ?>" required><br>
+  <?php if (!empty($errors['email'])): ?>
+  <div style="color: red;"><?= htmlspecialchars($errors['email']) ?></div>
+<?php endif; ?>
+ <br>
+
+  <button type="submit">Создать</button>
+</form>
+

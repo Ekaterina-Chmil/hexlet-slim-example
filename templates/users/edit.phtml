@@ -1,0 +1,29 @@
+<?php if (!empty($flash['success'])): ?>
+    <div style="color: green; margin-bottom: 1em;">
+        <?= implode('<br>', $flash['success']) ?>
+    </div>
+<?php endif; ?>
+
+<form action="/users/<?= htmlspecialchars($user['id']) ?>" method="post">
+    <!-- Обязательно скрытое поле для переопределения метода -->
+    <input type="hidden" name="_METHOD" value="PATCH">
+    
+    <label>
+        Имя:
+        <input type="text" name="user[name]" value="<?= htmlspecialchars($user['name'] ?? '') ?>">
+    </label>
+    <?php if (isset($errors['name'])): ?>
+        <div style="color: red;"><?= $errors['name'] ?></div>
+    <?php endif; ?>
+
+    <label>
+        Email:
+        <input type="email" name="user[email]" value="<?= htmlspecialchars($user['email'] ?? '') ?>">
+    </label>
+    <?php if (isset($errors['email'])): ?>
+        <div style="color: red;"><?= $errors['email'] ?></div>
+    <?php endif; ?>
+
+    <input type="submit" value="Обновить пользователя">
+</form>
+

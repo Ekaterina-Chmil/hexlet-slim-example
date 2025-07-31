@@ -1,0 +1,37 @@
+[
+    {
+        "user": {
+            "nickname": "name",
+            "email": "email@email.com"
+        },
+        "id": "682f5d8360f81"
+    },
+    {
+        "user": {
+            "nickname": "name",
+            "email": "email@email.com"
+        },
+        "id": "68371e2dc8277"
+    },
+    {
+        "user": {
+            "nickname": "name",
+            "email": "email@email.com"
+        },
+        "id": "68371ef9aa93b"
+    },
+    {
+        "user": {
+            "nickname": "name",
+            "email": "email@email.com"
+        },
+        "id": "6837208aaec52"
+    },
+    {
+        "id": "6839820e55460",
+        "user": {
+            "nickname": "name",
+            "email": "email@email.com"
+        }
+    }
+]
